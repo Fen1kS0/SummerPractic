@@ -1,9 +1,8 @@
-﻿using System.Collections;
-using System.Text;
+﻿using System.Text;
 
 namespace Tree25;
 
-public class BinaryTree : IEnumerable<int>
+public class BinaryTree
 {
     public BinaryTree()
     {
@@ -20,11 +19,9 @@ public class BinaryTree : IEnumerable<int>
     public Node? Root { get; private set; }
     public Node? Last { get; private set; }
 
-    public int Count { get; private set; }
-
     public void Add(int value)
     {
-        if (Count == 0)
+        if (Root is null)
         {
             var node = new Node()
             {
@@ -33,7 +30,6 @@ public class BinaryTree : IEnumerable<int>
 
             Root = node;
             Last = node;
-            Count++;
 
             return;
         }
@@ -44,7 +40,6 @@ public class BinaryTree : IEnumerable<int>
         };
 
         Last = Last.Right;
-        Count++;
     }
 
     public class Node
@@ -52,21 +47,6 @@ public class BinaryTree : IEnumerable<int>
         public int Value { get; set; }
         public Node? Left { get; set; }
         public Node? Right { get; set; }
-    }
-
-    public IEnumerator<int> GetEnumerator()
-    {
-        var node = Root;
-        while (node is not null)
-        {
-            yield return node.Value;
-            node = node.Right;
-        }
-    }
-
-    IEnumerator IEnumerable.GetEnumerator()
-    {
-        return GetEnumerator();
     }
 
     public override string ToString()
@@ -80,19 +60,20 @@ public class BinaryTree : IEnumerable<int>
         {
             return sb;
         }
-        
-        if(node.Right != null) 
+
+        if (node.Right != null)
         {
-            GenerateStringNode(node.Right, new StringBuilder().Append(prefix).Append(isTail ? "│  " : "   "), false, sb);
+            GenerateStringNode(node.Right, new StringBuilder().Append(prefix).Append(isTail ? "│  " : "   "), false,
+                sb);
         }
-        
+
         sb.Append(prefix).Append(isTail ? "└──" : "┌──").Append(node.Value).Append('\n');
-        
-        if(node.Left != null) 
+
+        if (node.Left != null)
         {
             GenerateStringNode(node.Left, new StringBuilder().Append(prefix).Append(isTail ? "   " : "│  "), true, sb);
         }
-        
+
         return sb;
     }
 }
