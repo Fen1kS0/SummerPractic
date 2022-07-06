@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+using System.Text;
 
 namespace Tree25;
 
@@ -6,9 +7,8 @@ public class BinaryTree : IEnumerable<int>
 {
     public BinaryTree()
     {
-        
     }
-    
+
     public BinaryTree(IEnumerable<int> enumerable)
     {
         foreach (var value in enumerable)
@@ -16,50 +16,11 @@ public class BinaryTree : IEnumerable<int>
             Add(value);
         }
     }
-    
+
     public Node? Root { get; private set; }
     public Node? Last { get; private set; }
 
     public int Count { get; private set; }
-
-    public static void AddLeaf(Node? rootNode)
-    {
-        var node = rootNode;
-        while (node != null)
-        {
-            if (IsLeaf(node))
-            {
-                var newNode = new Node()
-                {
-                    Value = node.Value
-                };
-                
-                if (IsEvenValue(node))
-                {
-                    node.Right = newNode;
-                }
-                else
-                {
-                    node.Left = newNode;
-                }
-                
-                break;
-            }
-
-            node = node.Right ?? node.Left;
-        }
-    }
-
-    public void ForEach(Action<Node> action)
-    {
-        var node = Root;
-        while (node != null)
-        {
-            action(node);
-            
-            node = node.Right ?? node.Left;
-        }
-    }
 
     public void Add(int value)
     {
@@ -73,7 +34,7 @@ public class BinaryTree : IEnumerable<int>
             Root = node;
             Last = node;
             Count++;
-            
+
             return;
         }
 
@@ -110,16 +71,28 @@ public class BinaryTree : IEnumerable<int>
 
     public override string ToString()
     {
-        return "[" + string.Join(" ", this) + "]";
+        return GenerateStringNode(Root, new StringBuilder(), true, new StringBuilder()).ToString();
     }
 
-    private static bool IsLeaf(Node node)
+    private StringBuilder GenerateStringNode(Node? node, StringBuilder prefix, bool isTail, StringBuilder sb)
     {
-        return node.Left is null && node.Right is null;
-    }
-
-    private static bool IsEvenValue(Node node)
-    {
-        return node.Value % 2 == 0;
+        if (node == null)
+        {
+            return sb;
+        }
+        
+        if(node.Right != null) 
+        {
+            GenerateStringNode(node.Right, new StringBuilder().Append(prefix).Append(isTail ? "│  " : "   "), false, sb);
+        }
+        
+        sb.Append(prefix).Append(isTail ? "└──" : "┌──").Append(node.Value).Append('\n');
+        
+        if(node.Left != null) 
+        {
+            GenerateStringNode(node.Left, new StringBuilder().Append(prefix).Append(isTail ? "   " : "│  "), true, sb);
+        }
+        
+        return sb;
     }
 }
