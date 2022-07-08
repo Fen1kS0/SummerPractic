@@ -4,6 +4,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tree25", "Tree25\Tree25.csp
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tree45", "Tree45\Tree45.csproj", "{B260A845-114B-40B5-BE39-5B45B62D8FAF}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tree.Core", "Tree.Core\Tree.Core.csproj", "{9B4449D5-4A9D-41BC-93DE-CE641C3AC7B5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tree.Graph", "Tree.Graph\Tree.Graph.csproj", "{92147501-A966-4ED1-AFE4-42FA103B01DC}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -18,5 +22,13 @@ Global
 		{B260A845-114B-40B5-BE39-5B45B62D8FAF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B260A845-114B-40B5-BE39-5B45B62D8FAF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B260A845-114B-40B5-BE39-5B45B62D8FAF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9B4449D5-4A9D-41BC-93DE-CE641C3AC7B5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9B4449D5-4A9D-41BC-93DE-CE641C3AC7B5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9B4449D5-4A9D-41BC-93DE-CE641C3AC7B5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9B4449D5-4A9D-41BC-93DE-CE641C3AC7B5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{92147501-A966-4ED1-AFE4-42FA103B01DC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{92147501-A966-4ED1-AFE4-42FA103B01DC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{92147501-A966-4ED1-AFE4-42FA103B01DC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{92147501-A966-4ED1-AFE4-42FA103B01DC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

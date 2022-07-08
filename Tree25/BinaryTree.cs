@@ -1,4 +1,5 @@
 ﻿using System.Text;
+using Tree.Core;
 
 namespace Tree25;
 
@@ -21,7 +22,7 @@ public class BinaryTree
 
     public void Add(int value)
     {
-        if (Root is null)
+        if (Root == null)
         {
             var node = new Node()
             {
@@ -40,13 +41,6 @@ public class BinaryTree
         };
 
         Last = Last.Right;
-    }
-
-    public class Node
-    {
-        public int Value { get; set; }
-        public Node? Left { get; set; }
-        public Node? Right { get; set; }
     }
 
     public override string ToString()

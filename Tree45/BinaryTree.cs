@@ -1,4 +1,5 @@
 ﻿using System.Text;
+using Tree.Core;
 
 namespace Tree45;
 
@@ -91,13 +92,6 @@ public class BinaryTree
         }
     }
 
-    public class Node
-    {
-        public int Value { get; set; }
-        public Node? Left { get; set; }
-        public Node? Right { get; set; }
-    }
-
     public override string ToString()
     {
         return GenerateStringNode(Root, new StringBuilder(), true, new StringBuilder()).ToString();
@@ -137,7 +131,7 @@ public class BinaryTree
 
     private static bool IsLeaf(Node node)
     {
-        return node.Left is null && node.Right is null;
+        return node.Left == null && node.Right == null;
     }
 
     private static bool IsEvenValue(Node node)

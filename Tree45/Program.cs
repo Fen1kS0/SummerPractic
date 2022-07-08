@@ -1,18 +1,24 @@
-﻿namespace Tree45;
+﻿using Tree.Graph;
+
+namespace Tree45;
 
 public class Program
 {
     static void Main()
     {
-        var list = new List<int>()
+        Console.Write("Введите кол-во элементов: ");
+        var count = int.Parse(Console.ReadLine()!);
+        var random = new Random();
+        var tree = new BinaryTree();
+
+        for (int i = 0; i < count; i++)
         {
-            5, 7, 3, 2, 6
-        };
+            tree.Add(random.Next(100));
+        }
         
-        var tree = new BinaryTree(list);
-        Console.WriteLine(tree);
+        tree.Root.Print();
         BinaryTree.AddLeaf(tree.Root);
         Console.WriteLine("==========================");
-        Console.WriteLine(tree);
+        tree.Root.Print();
     }
 }

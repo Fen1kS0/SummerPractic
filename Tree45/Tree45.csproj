@@ -7,4 +7,9 @@
         <Nullable>enable</Nullable>
     </PropertyGroup>
 
+    <ItemGroup>
+      <ProjectReference Include="..\Tree.Core\Tree.Core.csproj" />
+      <ProjectReference Include="..\Tree.Graph\Tree.Graph.csproj" />
+    </ItemGroup>
+
 </Project>
